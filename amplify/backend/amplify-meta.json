@@ -1,15 +1,15 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "amplify-covid19-dbcovid-192027-authRole",
-			"UnauthRoleArn": "arn:aws:iam::175643115898:role/amplify-covid19-dbcovid-192027-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::175643115898:role/amplify-covid19-dbcovid-192027-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-covid19-dbcovid-192027-deployment",
-			"UnauthRoleName": "amplify-covid19-dbcovid-192027-unauthRole",
-			"StackName": "amplify-covid19-dbcovid-192027",
-			"StackId": "arn:aws:cloudformation:us-east-1:175643115898:stack/amplify-covid19-dbcovid-192027/302157e0-84b5-11ea-9e4a-0e706f74ed45",
-			"AmplifyAppId": "d1mcitrpp19pfm"
+			"AuthRoleName": "amplify-covid19-cowinhab-192054-authRole",
+			"UnauthRoleArn": "arn:aws:iam::175643115898:role/amplify-covid19-cowinhab-192054-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::175643115898:role/amplify-covid19-cowinhab-192054-authRole",
+			"Region": "eu-central-1",
+			"DeploymentBucketName": "amplify-covid19-cowinhab-192054-deployment",
+			"UnauthRoleName": "amplify-covid19-cowinhab-192054-unauthRole",
+			"StackName": "amplify-covid19-cowinhab-192054",
+			"StackId": "arn:aws:cloudformation:eu-central-1:175643115898:stack/amplify-covid19-cowinhab-192054/73abe4c0-857e-11ea-9898-0222edd00d60",
+			"AmplifyAppId": "d3s4jlymjbw0xm"
 		}
 	},
 	"auth": {
@@ -19,20 +19,59 @@
 			"dependsOn": [],
 			"customAuth": false,
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-covid19-dbcovid-192027-deployment/amplify-cfn-templates/auth/covid192ed81584-cloudformation-template.yml",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-covid19-cowinhab-192054-deployment/amplify-cfn-templates/auth/covid192ed81584-cloudformation-template.yml",
 				"logicalId": "authcovid192ed81584"
 			},
-			"lastPushTimeStamp": "2020-04-22T16:28:09.035Z",
+			"lastPushTimeStamp": "2020-04-23T16:33:50.143Z",
 			"output": {
-				"AppClientSecret": "1upbnk42ajtghcs4mo3k2j8a6344sck2prv4oggtf9vkc2q7n3qa",
-				"UserPoolId": "us-east-1_1rrX8nVRK",
-				"AppClientIDWeb": "164faki76hbeqf3vji0vjrphdr",
-				"AppClientID": "oiluqvh9vdn39edc8kf2uift2",
-				"IdentityPoolId": "us-east-1:c385325b-ba3d-4f0b-b17d-ced3b8d37dfc",
-				"IdentityPoolName": "covid192ed81584_identitypool_2ed81584__dbcovid",
+				"AppClientSecret": "190310gdsmgod6v3tf36g1consc2tudh1aav26qbggole5u8gdn2",
+				"UserPoolId": "eu-central-1_Bo6dnKvLw",
+				"AppClientIDWeb": "7ed96iv3rd93bttdkeqjh9vaik",
+				"AppClientID": "7006rr12l8v88biq3gf80ega43",
+				"IdentityPoolId": "eu-central-1:ae210395-8450-47cf-a6b0-e9db180eb013",
+				"IdentityPoolName": "covid192ed81584_identitypool_2ed81584__cowinhab",
 				"UserPoolName": "covid192ed81584_userpool_2ed81584"
 			},
 			"lastPushDirHash": "7q0ciAa/xSjtE1BIgtyq7f4Q2Nk="
+		},
+		"userPoolGroups": {
+			"service": "Cognito-UserPool-Groups",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "auth",
+					"resourceName": "covid192ed81584",
+					"attributes": [
+						"UserPoolId",
+						"AppClientIDWeb",
+						"AppClientID",
+						"IdentityPoolId"
+					]
+				}
+			],
+			"lastPushTimeStamp": "2020-04-23T16:33:50.144Z",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-covid19-cowinhab-192054-deployment/amplify-cfn-templates/auth/template.json",
+				"logicalId": "authuserPoolGroups"
+			},
+			"output": {
+				"hubGroupRole": "arn:aws:iam::175643115898:role/eu-central-1_Bo6dnKvLw-hubGroupRole"
+			},
+			"lastPushDirHash": "2o4iVA8TVPbPeHDba8Un0ojRcvY="
+		}
+	},
+	"hosting": {
+		"amplifyhosting": {
+			"service": "amplifyhosting",
+			"providerPlugin": "awscloudformation",
+			"type": "manual",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-covid19-cowinhab-192054-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+				"logicalId": "hostingamplifyhosting"
+			},
+			"lastPushTimeStamp": "2020-04-23T16:33:50.148Z",
+			"output": {},
+			"lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
 		}
 	}
 }

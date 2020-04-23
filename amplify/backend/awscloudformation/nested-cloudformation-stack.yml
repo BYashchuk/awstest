@@ -71,7 +71,7 @@
 		"authcovid192ed81584": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-covid19-dbcovid-192027-deployment/amplify-cfn-templates/auth/covid192ed81584-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-covid19-cowinhab-192054-deployment/amplify-cfn-templates/auth/covid192ed81584-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "covid192ed81584_identitypool_2ed81584",
 					"allowUnauthenticatedIdentities": false,
@@ -112,7 +112,63 @@
 					"usernameAttributes": "email",
 					"userPoolGroupList": "",
 					"dependsOn": "",
-					"env": "dbcovid"
+					"env": "cowinhab"
+				}
+			}
+		},
+		"authuserPoolGroups": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplify-covid19-cowinhab-192054-deployment/amplify-cfn-templates/auth/template.json",
+				"Parameters": {
+					"AuthRoleArn": {
+						"Fn::GetAtt": [
+							"AuthRole",
+							"Arn"
+						]
+					},
+					"UnauthRoleArn": {
+						"Fn::GetAtt": [
+							"UnauthRole",
+							"Arn"
+						]
+					},
+					"authcovid192ed81584UserPoolId": {
+						"Fn::GetAtt": [
+							"authcovid192ed81584",
+							"Outputs.UserPoolId"
+						]
+					},
+					"authcovid192ed81584AppClientIDWeb": {
+						"Fn::GetAtt": [
+							"authcovid192ed81584",
+							"Outputs.AppClientIDWeb"
+						]
+					},
+					"authcovid192ed81584AppClientID": {
+						"Fn::GetAtt": [
+							"authcovid192ed81584",
+							"Outputs.AppClientID"
+						]
+					},
+					"authcovid192ed81584IdentityPoolId": {
+						"Fn::GetAtt": [
+							"authcovid192ed81584",
+							"Outputs.IdentityPoolId"
+						]
+					},
+					"env": "cowinhab"
+				}
+			}
+		},
+		"hostingamplifyhosting": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplify-covid19-cowinhab-192054-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+				"Parameters": {
+					"appId": "d3s4jlymjbw0xm",
+					"type": "manual",
+					"env": "cowinhab"
 				}
 			}
 		},

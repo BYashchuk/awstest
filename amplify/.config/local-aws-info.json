@@ -3,5 +3,10 @@
         "configLevel": "project",
         "useProfile": false,
         "awsConfigFilePath": "/Users/bohdanyashchuk/.amplify/awscloudformation/tQIGRAJdeR"
+    },
+    "cowinhab": {
+        "configLevel": "project",
+        "useProfile": false,
+        "awsConfigFilePath": "/Users/bohdanyashchuk/.amplify/awscloudformation/llOy84zWok"
     }
 }
